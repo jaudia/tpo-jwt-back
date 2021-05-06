@@ -18,6 +18,6 @@ process.env.CADUCIDAD_TOKEN = '1h';
 
 
 // ===================================
-//  SEED de autenticacion
+//  Secreto de autenticacion
 // ===================================
-process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
+process.env.SECRET_AUTH = process.env.SECRET_AUTH || 'este-es-el-secreto-de-desarrollo';
