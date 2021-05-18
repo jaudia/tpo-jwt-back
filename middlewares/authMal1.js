@@ -1,13 +1,23 @@
 const jwt = require("jsonwebtoken");
 
 // ===================================
-//  Verificacion del token
+//  Verificacion del token que no se firmó
 // ===================================
-let verificaToken = (req, res, next) => {
+let verificaTokenMal1 = (req, res, next) => {
   /*Obtengo mi header llamado tokenH*/
   let token = req.get("tokenHeader");
 
-  jwt.verify(token, process.env.SECRET_AUTH, (err, decoded) => {
+  // jwt.verify(token,'', (err, decoded) => {
+  //   // el decoded tendra la informacion del usuario
+
+  //   if (err) {
+  //     return res.status(401).json({
+  //       ok: false,
+  //       err,
+  //     });
+  //   }
+
+  jwt.decode(token, (err, decoded) => {
     // el decoded tendra la informacion del usuario
 
     if (err) {
@@ -24,5 +34,5 @@ let verificaToken = (req, res, next) => {
 };
 
 module.exports = {
-  verificaToken,
+  verificaTokenMal1,
 };

@@ -6,10 +6,10 @@ const nodemon = require("nodemon");
 // const bcrypt = require("bcrypt");
 const _ = require("underscore");
 
-const { verificaToken } = require("../middlewares/autenticacion");
+const { verificaTokenMal1 } = require("../middlewares/authMal1");
 
-app.post("/pedirToken", (req, res) => {
-  console.log("pasando por PEDIRTOKEN");
+app.post("/pedirTokenMal1", (req, res) => {
+  console.log("pasando por pedirTokenMal1 ");
 
   const { nombre, apellido, edad } = req.body;
 
@@ -28,7 +28,6 @@ app.post("/pedirToken", (req, res) => {
   };
 
   //Payload, secreto, optoin
-  // let token = jwt.sign({ datos: datosRecibidos }, secreto, options);
   let token = jwt.sign({ datos: datosRecibidos }, null, options);
 
   res.json({
